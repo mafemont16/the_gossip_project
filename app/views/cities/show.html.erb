@@ -1,2 +1,67 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<head>
+  <style>
+    <title>The Gossip Project</title>
+    <style>
+    h1, p {
+     margin-top: 30px;
+     margin-left: 30px;
+    }
+    body{
+    background: #eee;
+    }
+
+    span{
+    font-size:15px;
+    }
+
+    a{
+    text-decoration:none;
+    color: #0062cc;
+    }
+    .box{
+    padding:60px 0px;
+    }
+    .box-part{
+    background:#FFF;
+    border-radius:0;
+    padding:30px 10px;
+    margin:30px 0px;
+    }
+    .text{
+    margin:20px 0px;
+    }
+
+    .fa{
+    color:#6d6875;
+    }
+    </style>
+<!-- Title -->
+
+  <div class="container text-center">
+    <h1 class="my-4"> Welcome to <%= City.find(params[:id]).name %></h1>
+    <!-- Title  -->
+    <div class="box">
+        <div class="container">
+         	<div class="row">
+            <% Gossip.all.select { |gossip| gossip.user.city.id == City.find(params[:id]).id }.each do |gossip| %>
+            <div class="col-md-6 col-sm-4">
+
+            <div class="box-part text-center">
+            <i class="fa fa-user-o fa-3x" aria-hidden="true"></i>
+               <br>
+               <br>
+              <div class="title">
+                <h4><%= gossip.title %></h4>
+                <span><%= gossip.content %></span>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-6">
+         <h6 class="card-subtitle m-3 text-muted">Gossip n°<%= gossip.id %>, de <%= link_to gossip.user.first_name, user_path(gossip.user.id)%></h6>
+         <a class="btn btn-secondary" <%= link_to "See the gossip", gossip_path(gossip.id), :class => "card-link"%>
+      </div>
+    </div>
+  </div>
+ </div>
+<% end %>
+
+</div>

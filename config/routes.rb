@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :gossips
   resources :sessions
   resources :comments
+  resources :cities, only: [:show]
   resources :users, only: [:new, :create, :show]
 
 

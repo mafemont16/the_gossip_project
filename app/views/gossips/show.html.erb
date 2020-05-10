@@ -12,7 +12,7 @@
         <p class="card-text">
           <small class="text-muted">Created by <%=link_to Gossip.find(params['id'].to_i).user.first_name, user_path(Gossip.find(params['id'].to_i).user.id) %>
             on <%=@gossip.created_at.strftime("%d/%m/%Y à %H:%I") %>
-            in <a href="<%=  %>"><%= %></a>
+            in <a href="<%= city_path(@gossip.user.city.id) %>"><%=@gossip.user.city.name %></a>
           </small>
         </p>
 
