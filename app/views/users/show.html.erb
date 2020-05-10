@@ -1,0 +1,20 @@
+<br>
+<br>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="card w-50 p-1">
+     <div class="card">
+    <div class="card-header text-center"><strong>User profile</strong></div>
+     <div class="card-body">
+       <p class="card-text"> Name: <%= @user.first_name %>  </p>
+       <p class="card-text"> Last name: <%= @user.last_name %>  </p>
+       <p class="card-text"> Description: <%= @user.description %> </p>
+       <p class="card-text"> Email: <%= @user.email %>  </p>
+       <p class="card-text"> Age: <%= @user.age %>  </p>
+       <p class="card-text"> City: <a href="/cities/<%= @user.city.id %>"><%= @user.city.name %></a> </p>
+    </div>
+    <button type="button" class="btn btn-secondary">Edit this profile</button>
+   </div>
+  </div>
+ </div>
+</div>

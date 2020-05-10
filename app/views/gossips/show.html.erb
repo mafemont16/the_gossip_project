@@ -1,0 +1,30 @@
+<div class="container">
+<div class="row justify-content-center">
+  <!-- Gossip  -->
+
+  <div class="card w-25">
+    <div class="card">
+      <img class="card-img-top" alt="Card image cap" src="https://www.omnycontent.com/d/clips/aaea4e69-af51-495e-afc9-a9760146922b/93442535-ff58-4499-9697-aa3200e14c00/cd61a241-32d6-49cd-9670-aa3200e17784/image.jpg?t=1555508456&size=Large">
+      <div class="card-body">
+        <h5 class="card-title"><%=@gossip.title %></h5>
+        <p class="card-text"><%= @gossip.content %></p>
+        <p class="card-text">
+        <p class="card-text">
+          <small class="text-muted">Created by <%=link_to Gossip.find(params['id'].to_i).user.first_name, user_path(Gossip.find(params['id'].to_i).user.id) %>
+            on <%=@gossip.created_at.strftime("%d/%m/%Y à %H:%I") %>
+            in <a href="<%=  %>"><%= %></a>
+          </small>
+        </p>
+
+        <div class="row justify-content-center">
+            <div class="col-sm-6">
+              <a href="<%= edit_gossip_path%>" class="btn btn-sm btn-info float-right">Edit</a>
+              <div class="row-12 text-center">
+              <a href="<%= gossip_path%>" class="btn  btn-sm btn-danger float-left" data-confirm="Are you sure you want to delete this gossip?"
+              data-method="DELETE">Delete</a>
+
+                </div>
+          </div>
+        </div>
+      </div>
+      <!-- Comments -->
